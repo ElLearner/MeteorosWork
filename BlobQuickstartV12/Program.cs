@@ -18,24 +18,29 @@ namespace BlobQuickstartV12
             // environment variable is created after the application is launched in a
             // console or with Visual Studio, the shell or application needs to be closed
             // and reloaded to take the environment variable into account.
-            string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
+            //string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 
-            // Create a BlobServiceClient object which will be used to create a container client
+            /*// Create a BlobServiceClient object which will be used to create a container client
             BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 
             //Create a unique name for the container
             string containerName = "basuquickstartblobs" + Guid.NewGuid().ToString();
 
             // Create the container and return a container client object
-            BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
+            BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName); */
+
+            var connectionString = "DefaultEndpointsProtocol=https;AccountName=storage1forblobs;AccountKey=Gdn1ylxdvgal+hGv7aUfToBARVFEeVHHfPoz/OJFhbtdzJMgzbG5L3guEZ5pLoY7MzWSOqT6kt2B+AStDi8xxg==;EndpointSuffix=core.windows.net";
+            string containerName = "trialcontainer1";
+            var serviceClient = new BlobServiceClient(connectionString);
+            var containerClient = serviceClient.GetBlobContainerClient(containerName);
 
             // Create a local file in the ./data/ directory for uploading and downloading
             string localPath = "./data/";
-            string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
+            string fileName = "TrialText.txt";
             string localFilePath = Path.Combine(localPath, fileName);
 
             // Write text to the file
-            await File.WriteAllTextAsync(localFilePath, "Hello, World!");
+            await File.WriteAllTextAsync(localFilePath, "Let me try uploading this file first.");
 
             // Get a reference to a blob
             BlobClient blobClient = containerClient.GetBlobClient(fileName);
@@ -45,7 +50,8 @@ namespace BlobQuickstartV12
             // Upload data from the local file
             await blobClient.UploadAsync(localFilePath, true);
 
-
+            //Listing all Files
+            /*
             Console.WriteLine("Listing blobs...");
 
             // List all blobs in the container
@@ -53,7 +59,7 @@ namespace BlobQuickstartV12
             {
                 Console.WriteLine("\t" + blobItem.Name);
             }
-
+            */
             // Download the blob to a local file
             // Append the string "DOWNLOADED" before the .txt extension 
             // so you can compare the files in the data directory

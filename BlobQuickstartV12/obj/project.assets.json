@@ -410,24 +410,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BasuVM\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BasuVM\\BlobQuickstartV12\\BlobQuickstartV12.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\GitFiles\\MeteorosWork\\BlobQuickstartV12\\BlobQuickstartV12.csproj",
       "projectName": "BlobQuickstartV12",
-      "projectPath": "C:\\Users\\BasuVM\\BlobQuickstartV12\\BlobQuickstartV12.csproj",
-      "packagesPath": "C:\\Users\\BasuVM\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BasuVM\\BlobQuickstartV12\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\GitFiles\\MeteorosWork\\BlobQuickstartV12\\BlobQuickstartV12.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\GitFiles\\MeteorosWork\\BlobQuickstartV12\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\BasuVM\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -22,14 +22,17 @@ namespace demo
             CloudTable table = tableClient.GetTableReference(tableName);
 
 
-            CustomerEntity customer = new CustomerEntity("Harp", "Walter")
+            CustomerEntity customer = new CustomerEntity("Basu", "BlobTextFile")
             {
-                Email = "Walter@contoso.com",
-                PhoneNumber = "425-555-0101"
+                
+                URL = "https://storage1forblobs.blob.core.windows.net/trialcontainer1/TrialText.txt",
+                Email = "basangouda.patil@meteoros.in",
+                //PhoneNumber = "8861567555",
+                Place = "Bangalore"
             };
 
             MergeUser(table, customer).Wait();
-            QueryUser(table, "Harp", "Walter").Wait();
+            QueryUser(table, "Basu", "BlobTextFile").Wait();
 
         }
 
@@ -52,21 +55,23 @@ namespace demo
             if (customer != null)
             {
                 Console.WriteLine("Fetched \t{0}\t{1}\t{2}\t{3}", 
-                    customer.PartitionKey, customer.RowKey, customer.Email, customer.PhoneNumber);
+                    customer.PartitionKey, customer.RowKey, customer.URL, customer.Email, customer.Place);
             }
         }
     }
 
     public class CustomerEntity : TableEntity
     {
+
         public CustomerEntity() {}
         public CustomerEntity(string lastName, string firstName)
         {
             PartitionKey = lastName;
             RowKey = firstName;
         }
-
+        public string URL { get; set; }
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        //public string PhoneNumber { get; set; }
+        public string Place { get; set; }
     }
 }
